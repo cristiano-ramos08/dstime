@@ -1,0 +1,29 @@
+header{
+    background-color: var(--color-primary);
+    height: 55px;
+}
+
+.dstime-nav-content h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.dstime-nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(22, 5, 5);
+}
+
+.dstime-fundacao-container {
+    display: flex;
+    align-items: center;
+    margin: 7px 0 0 0px;
+}
+
+.dstime-fundacao {
+    margin: 0 0 0 10px;
+    font-size: 12px;
+    
+}
