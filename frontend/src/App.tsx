@@ -8,6 +8,7 @@ import Form from 'pages/Form';
 import Home from "pages/Home";
 import Listing from "pages/Listing";
 import Navbar from "components/Navbar";
+import Artillery from "pages/Artillery";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/listing" element={<Listing />} />
+        <Route path="/artillery" element={<Artillery />} />
         <Route path="/form">
           <Route path=":movieId" element={<Form />} />
         </Route>

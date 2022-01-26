@@ -11,13 +11,19 @@ function Navbar() {
                     <Link  to="/">
                        <h1>Raca Jovem FC</h1>
                     </Link>
+                    <div className="dstime-fundacao-container">
+                        <Link  to="/">
+                             <h1>Inicio</h1>
+                        </Link> 
+                        <Link  to="/artillery">
+                             <h1>Aritilheiro</h1>
+                        </Link> 
+                    </div>
                     <div className="dstime-fundacao-container">               
-                        <LogoRaca /> 
-                           
-                            <p className="dstime-fundacao">Fundado em 2005</p>
-                           
-                       
-                     </div>
+                        <LogoRaca />                            
+                        <p className="dstime-fundacao">Fundado em 2005</p>
+                                                
+                    </div>
                 </div>               
             </nav>
             

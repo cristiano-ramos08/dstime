@@ -7,7 +7,7 @@ function Listing (){
         <div>
              <h1>Listing</h1>
 
-            <Link className="btn btn-primary btn-lg" to="/artillary">
+            <Link className="btn btn-primary btn-lg" to="/artillery">
 
                 Artilharia
             </Link>

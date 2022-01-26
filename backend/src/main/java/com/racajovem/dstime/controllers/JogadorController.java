@@ -18,7 +18,7 @@ import com.racajovem.dstime.entities.Jogador;
 import com.racajovem.dstime.repositories.JogadorRepository;
 
 @RestController
-@RequestMapping("/artilharias")
+@RequestMapping(value = "/artilharia")
 public class JogadorController {
 	
 	private final JogadorRepository jogadorRepository;
