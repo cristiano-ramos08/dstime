@@ -19,9 +19,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/listing" element={<Listing />} />
         <Route path="/artillery" element={<Artillery />} />
-        <Route path="/form">
-          <Route path=":movieId" element={<Form />} />
-        </Route>
+        <Route path="/form" element={<Form />} />
+        
       </Routes>
     </BrowserRouter>
   );
