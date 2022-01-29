@@ -50,6 +50,7 @@ public class JogadorController {
 	        currentJogador.setGol(jogador.getGol());
 	        currentJogador.setAssistencia(jogador.getAssistencia());
 	        currentJogador.setPosicao(jogador.getPosicao());
+	        currentJogador.setImage(jogador.getImage());
 	        currentJogador = jogadorRepository.save(jogador);
 
 	        return ResponseEntity.ok(currentJogador);

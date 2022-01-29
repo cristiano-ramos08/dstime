@@ -11,6 +11,7 @@ interface Iartilheiro {
     gol: string;
     assistencia: string;   
     posicao: string; 
+    image: string
 }
 const Artillery = () => {
 
@@ -26,6 +27,7 @@ const Artillery = () => {
     */
     useEffect(() => {
         loadArtillery()
+        
     }, []); 
 
     async function loadArtillery(){
@@ -34,16 +36,14 @@ const Artillery = () => {
         .then(response => {
             setArtillery(response.data);
         });
-    }
-    
+    }   
 
     async function deleteArtillery(id:number) {
         await axios.delete(`${BASE_URL}/artilharia/${id}`)
-        loadArtillery()        
-    }
-    
-
-    
+        loadArtillery()   
+       // alert('Jogador excluído com sucesso'); 
+    } 
+        
     return (  
         <>      
         <div className="container">
@@ -51,7 +51,9 @@ const Artillery = () => {
             <div className="artillery-header">
                 <h1>Lista de artilheiros</h1>
                 <Link  to="/form">
-                    <button type="button" className="btn btn-dark table-sm">Novo jogador</button>
+                    <button type="button" className="btn btn-dark table-sm">
+                        Novo jogador
+                    </button>
                 </Link>
             </div>
             <br />
@@ -59,18 +61,18 @@ const Artillery = () => {
                
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        
                         <th>Nome</th>
                         <th>Gols</th>
                         <th>Assistências</th>
-                        <th>Posicao</th>                
+                        <th>Posicao</th>              
                     </tr>
                 </thead>
                 <tbody>
                     {
                         artillery.map(arti => (                      
                         <tr key={arti.id}>
-                            <td> { arti.id} </td>
+                           
                             <td> { arti.nome} </td>
                             <td> { arti.gol} </td>
                             <td> { arti.assistencia} </td>

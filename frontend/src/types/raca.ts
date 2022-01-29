@@ -5,5 +5,6 @@ export type Raca = {
     gol: string;
     assistencia: string;   
     posicao: string; 
+    image: string
 }
 

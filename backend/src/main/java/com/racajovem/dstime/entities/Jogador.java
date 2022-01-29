@@ -18,17 +18,19 @@ public class Jogador {
 	private Integer gol;
 	private Integer assistencia;
 	private String posicao;
+	private String image;
 	
 	public Jogador() {
 		
 	}
 
-	public Jogador(String nome, Integer gol, Integer assistencia, String posicao) {
+	public Jogador(String nome, Integer gol, Integer assistencia, String posicao, String image) {
 		super();
 		this.nome = nome;
 		this.gol = gol;
 		this.assistencia = assistencia;
 		this.posicao = posicao;
+		this.image = image;
 	}
 	
 	
@@ -71,5 +73,14 @@ public class Jogador {
 	public void setPosicao(String posicao) {
 		this.posicao = posicao;
 	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 	
 }

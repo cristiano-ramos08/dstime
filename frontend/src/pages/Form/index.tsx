@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, ChangeEvent, useEffect } from "react";
 import { BASE_URL } from "utils/requests";
 import { Link, useParams } from "react-router-dom";
+import './styles.css'
 
 
 interface NewJogador {
@@ -10,6 +11,7 @@ interface NewJogador {
   gol: number;
   assistencia: number;
   posicao: string;
+  image: string
 }
 
 const Form = () => {
@@ -20,6 +22,7 @@ const Form = () => {
     gol: 0,
     assistencia: 0,
     posicao: "",
+    image: ""
   });
 
   useEffect(() => {
@@ -62,8 +65,6 @@ const Form = () => {
   }
 }
 
-
-
   async function findArtillery(id: any) {
     const response = await axios.get(`${BASE_URL}/artilharia/${id}`);
     setModel({
@@ -72,6 +73,7 @@ const Form = () => {
       gol: response.data.gol,
       assistencia: response.data.assistencia,
       posicao: response.data.posicao,
+      image: response.data.image
     });
   }
 
@@ -80,9 +82,9 @@ const Form = () => {
       <div className="container">
         <br />
         <div className="artillery-header">
-          <h1>Cadastro de novos jogadores</h1>
+          <h1>Cadastro de jogador</h1>
           <Link to="/artillery">
-            <button type="button" className="btn btn-dark btn-sm">
+            <button type="button" className="btn btn-dark table-sm">
               Voltar
             </button>
           </Link>
@@ -128,6 +130,16 @@ const Form = () => {
                 name="posicao"
                 value={model.posicao}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+              />
+            </div>
+            <div className="form-group dsmovie-form-group">
+              <label>Imagem</label>
+              <input
+                type="file"
+                className="form-control"
+                name="image"
+                //value={model.image}
+                //onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               />
             </div>
             <br />
