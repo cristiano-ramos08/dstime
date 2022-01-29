@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './styles.css'
 import { Link } from "react-router-dom";
 
-
 interface Iartilheiro {
     id: number,
     nome: string; 
@@ -16,15 +15,35 @@ interface Iartilheiro {
 const Artillery = () => {
 
     const [artillery, setArtillery] = useState<Iartilheiro[]>([]);
-    //const history = useHistory()
 
+    /*
     useEffect(() => {
         axios.get(`${BASE_URL}/artilharia`)
         .then(response => {
             setArtillery(response.data);
         });
     }, []); 
+    */
+    useEffect(() => {
+        loadArtillery()
+    }, []); 
 
+    async function loadArtillery(){
+
+         axios.get(`${BASE_URL}/artilharia`)
+        .then(response => {
+            setArtillery(response.data);
+        });
+    }
+    
+
+    async function deleteArtillery(id:number) {
+        await axios.delete(`${BASE_URL}/artilharia/${id}`)
+        loadArtillery()        
+    }
+    
+
+    
     return (  
         <>      
         <div className="container">
@@ -57,8 +76,10 @@ const Artillery = () => {
                             <td> { arti.assistencia} </td>
                             <td> { arti.posicao} </td>
                             <td>
-                           <button type="button" className="btn btn-primary btn-sm">Editar</button>{' '}
-                           <button type="button" className="btn btn-danger btn-sm">Remover</button>
+                            <Link to={`/form/${arti.id}`}>
+                           <button type="button" className="btn btn-primary btn-sm" >Editar</button>{' '}
+                           </Link>
+                           <button type="button" className="btn btn-danger btn-sm" onClick={() => deleteArtillery(arti.id)}>Remover</button>
                             </td>
                         </tr>  
                         ))

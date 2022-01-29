@@ -2,8 +2,8 @@ export type Raca = {
     
     id: number,
     nome: string; 
-    gol: number;
-    assistencia: number;   
+    gol: string;
+    assistencia: string;   
     posicao: string; 
 }
 
