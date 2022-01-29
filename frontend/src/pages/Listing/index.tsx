@@ -1,23 +1,32 @@
 import Pagination from "components/Pagination";
-import { Link } from "react-router-dom";
+import TimeCard from "components/TimeCard";
+//import { Link } from "react-router-dom";
 
-
-function Listing (){
-    
-    return (
-        <>
-        <div>
-            <Pagination />
-             <h1>Listing</h1>
-
-            <Link className="btn btn-primary btn-lg" to="/artillery">
-
-                Artilharia
-            </Link>
+function Listing() {
+  return (
+    <>
+      <Pagination />
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+            <TimeCard />
+          </div>
+          <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+            <TimeCard />
+          </div>
+          <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+            <TimeCard />
+          </div>
+          <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+            <TimeCard />
+          </div>
+          <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+            <TimeCard />
+          </div>
         </div>
-        
-        </>
-    );
+      </div>
+    </>
+  );
 }
 
 export default Listing;

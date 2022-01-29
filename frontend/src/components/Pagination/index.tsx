@@ -5,7 +5,7 @@ function Pagination() {
 
     return(
         <div className="dsmovie-pagination-container">
-        <div className="dsmovie-pagination-box">
+     
             <button className="dsmovie-pagination-button"
              disabled={true} >
                 <Arrow />
@@ -16,7 +16,7 @@ function Pagination() {
                 <Arrow className="dsmovie-flip-horizontal" />
             </button>
         </div>
-    </div>
+   
 
     );
 }
