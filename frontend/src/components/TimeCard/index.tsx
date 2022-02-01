@@ -1,29 +1,21 @@
-/*
-import { Raca } from "types/raca";
-
+import "./styles.css";
+import { Raca } from  "types/raca";
 
 type Props = {
-    time: Raca;
-} 
-*/
-import "./styles.css";
+  timeRaca: Raca;
+}
 
-function TimeCard() {
-  const time = {
-    id: 1,
-    nome: "Cris",
-    gol: 2,
-    assistencia: 1,
-    posicao: "Ala",
-    image:
-      "https://themoviedb.org/t/p/w533_and_h300_bestv2/jBJWaqoSCiARWtfV0GlqHrcdidd.jpg",
-  };
+function TimeCard({ timeRaca }  : Props ) {  
 
   return (
     <div>
-      <img className="dstime-time-card-image" src={time.image} alt="cris" />
-      <div className="teste">
-        <p>{time.nome}</p>
+      
+     <img className="dstime-time-card-image" src={timeRaca.image} alt="cris" />
+      <div className="dstime-card-bottom-container">
+        <p>Nome: {timeRaca.nome}</p>
+        <p>Gols: {timeRaca.gol}</p>
+        <p>Assistencias: {timeRaca.assistencia}</p>
+        <p>Posição{timeRaca.posicao}</p>
       </div>
     </div>
   );

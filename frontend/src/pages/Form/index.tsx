@@ -1,9 +1,8 @@
 import axios from "axios";
 import { useState, ChangeEvent, useEffect } from "react";
 import { BASE_URL } from "utils/requests";
-import { Link, useParams } from "react-router-dom";
-import './styles.css'
-
+import { Link, useParams, useNavigate } from "react-router-dom";
+import "./styles.css";
 
 interface NewJogador {
   id: number;
@@ -11,10 +10,11 @@ interface NewJogador {
   gol: number;
   assistencia: number;
   posicao: string;
-  image: string
+  image: string;
 }
 
 const Form = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [model, setModel] = useState<NewJogador>({
     id: 0,
@@ -22,7 +22,7 @@ const Form = () => {
     gol: 0,
     assistencia: 0,
     posicao: "",
-    image: ""
+    image: "",
   });
 
   useEffect(() => {
@@ -32,9 +32,7 @@ const Form = () => {
     }
   }, [id]);
 
-  function updatedModel(
-    e: ChangeEvent<HTMLInputElement>
-  ) {
+  function updatedModel(e: ChangeEvent<HTMLInputElement>) {
     setModel({
       ...model,
       [e.target.name]: e.target.value,
@@ -48,22 +46,13 @@ const Form = () => {
         console.log(id);
         console.log(model);
         await axios.put(`${BASE_URL}/artilharia/${id}`, model);
-      }
-       else 
-        await axios.post(`${BASE_URL}/artilharia`, model);
-      alert('salvo com sucesso');
-       /*
-      <Redirect
-        to={{
-        pathname: "/form"
-    
-      }}
-     
-    /> */
+      } else await axios.post(`${BASE_URL}/artilharia`, model);
+      alert("salvo com sucesso");
     } catch (e) {
-        alert('fudeu');
+      alert("fudeu");
+    }
+   navigate("/artilharia");
   }
-}
 
   async function findArtillery(id: any) {
     const response = await axios.get(`${BASE_URL}/artilharia/${id}`);
@@ -73,13 +62,14 @@ const Form = () => {
       gol: response.data.gol,
       assistencia: response.data.assistencia,
       posicao: response.data.posicao,
-      image: response.data.image
+      image: response.data.image,
     });
   }
 
   return (
     <>
       <div className="container">
+        
         <br />
         <div className="artillery-header">
           <h1>Cadastro de jogador</h1>
@@ -92,8 +82,9 @@ const Form = () => {
         <br />
         <div className="container">
           <form className="dsmovie-form" onSubmit={onSubmit}>
-            <div className="form-group dsmovie-form-group">
+            <div className="form-group dstime-form-group">
               <label>Nome</label>
+
               <input
                 type="text"
                 className="form-control"
@@ -102,7 +93,7 @@ const Form = () => {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               />
             </div>
-            <div className="form-group dsmovie-form-group">
+            <div className="form-group dstime-form-group">
               <label>Gol</label>
               <input
                 type="number"
@@ -112,7 +103,7 @@ const Form = () => {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               />
             </div>
-            <div className="form-group dsmovie-form-group">
+            <div className="form-group dstime-form-group">
               <label>Assistencia</label>
               <input
                 type="number"
@@ -122,7 +113,7 @@ const Form = () => {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               />
             </div>
-            <div className="form-group dsmovie-form-group">
+            <div className="form-group dstime-form-group">
               <label>Posição</label>
               <input
                 type="text"
@@ -132,7 +123,7 @@ const Form = () => {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               />
             </div>
-            <div className="form-group dsmovie-form-group">
+            <div className="form-group dstime-form-group">
               <label>Imagem</label>
               <input
                 type="file"
@@ -143,10 +134,13 @@ const Form = () => {
               />
             </div>
             <br />
-            <div className="dsmovie-form-btn-container">
-              <button type="submit" className="btn btn-primary ">
+            <div className="dstime-form-btn-container">
+              <button type="submit" className="btn btn-success">
                 Salvar
-              </button>
+              </button>{" "}
+              <Link to="/artillery">
+                <button className="btn btn-danger">Cancelar</button>
+              </Link>
             </div>
           </form>
         </div>

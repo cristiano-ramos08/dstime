@@ -6,3 +6,11 @@
     font-size: 30px;
     
 }
+.dstime-form-btn-container{
+    justify-content: space-between;
+    margin: 2 px;
+    margin: 0;
+    font-weight: 700;
+    font-size: 24px;
+
+}

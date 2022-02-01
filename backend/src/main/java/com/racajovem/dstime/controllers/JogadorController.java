@@ -4,6 +4,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,8 +30,8 @@ public class JogadorController {
     }
 	
 	@GetMapping
-	public List<Jogador> getJogador(){
-		return jogadorRepository.findAll();
+	public Page<Jogador> findaAll(Pageable pageable){
+		return jogadorRepository.findAll(pageable);
 	}
 	
 	 @GetMapping("/{id}")

@@ -4,7 +4,10 @@ import { BASE_URL } from "utils/requests";
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles.css";
 import { Link } from "react-router-dom";
+import { TimePage } from "types/raca";
+import Pagination from "components/Pagination";
 
+/*
 interface Iartilheiro {
   id: number;
   nome: string;
@@ -13,26 +16,36 @@ interface Iartilheiro {
   posicao: string;
   image: string;
 }
+*/
 const Artillery = () => {
-  const [artillery, setArtillery] = useState<Iartilheiro[]>([]);
+  const [activePage, setActivePage] = useState(0);
+  const [page, setPage] = useState<TimePage>({
+    content: [],
+    last: true,
+    totalPages: 0,
+    totalElements: 0,
+    number: 0,
+    size: 12,
+    first: true,
+    numberOfElements: 0,
+    empty: true,
+  });
 
-  /*
-    useEffect(() => {
-        axios.get(`${BASE_URL}/artilharia`)
-        .then(response => {
-            setArtillery(response.data);
-        });
-    }, []); 
-    */
   useEffect(() => {
     loadArtillery();
-  }, []);
+  }, [activePage]);
 
   async function loadArtillery() {
-    axios.get(`${BASE_URL}/artilharia`).then((response) => {
-      setArtillery(response.data);
-    });
-  }
+    axios
+      .get(`${BASE_URL}/artilharia?size=12&page=${activePage}&size=20&sort=gol,desc`)
+      .then((response) => {
+        setPage(response.data);
+      });
+    }
+
+  const changePage = (index: number) => {
+    setActivePage(index);
+  };
 
   async function deleteArtillery(id: number) {
     await axios.delete(`${BASE_URL}/artilharia/${id}`);
@@ -44,6 +57,7 @@ const Artillery = () => {
     <>
       <div className="container">
         <br />
+
         <div className="artillery-header">
           <h1>Lista de artilheiros</h1>
           <Link to="/form">
@@ -52,6 +66,7 @@ const Artillery = () => {
             </button>
           </Link>
         </div>
+        <Pagination page={page} onChange={changePage} />
         <br />
         <table className="table table-striped table-sm">
           <thead>
@@ -63,7 +78,7 @@ const Artillery = () => {
             </tr>
           </thead>
           <tbody>
-            {artillery.map((arti) => (
+            {page.content.map((arti) => (
               <tr key={arti.id}>
                 <td> {arti.nome} </td>
                 <td> {arti.gol} </td>
