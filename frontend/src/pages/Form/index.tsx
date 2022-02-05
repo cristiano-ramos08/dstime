@@ -47,11 +47,11 @@ const Form = () => {
         console.log(model);
         await axios.put(`${BASE_URL}/artilharia/${id}`, model);
       } else await axios.post(`${BASE_URL}/artilharia`, model);
+      navigate("/artillery");
       alert("salvo com sucesso");
     } catch (e) {
       alert("fudeu");
     }
-   navigate("/artilharia");
   }
 
   async function findArtillery(id: any) {
@@ -69,7 +69,6 @@ const Form = () => {
   return (
     <>
       <div className="container">
-        
         <br />
         <div className="artillery-header">
           <h1>Cadastro de jogador</h1>
@@ -121,6 +120,7 @@ const Form = () => {
                 name="posicao"
                 value={model.posicao}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                
               />
             </div>
             <div className="form-group dstime-form-group">

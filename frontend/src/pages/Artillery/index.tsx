@@ -37,11 +37,13 @@ const Artillery = () => {
 
   async function loadArtillery() {
     axios
-      .get(`${BASE_URL}/artilharia?size=12&page=${activePage}&size=20&sort=gol,desc`)
+      .get(
+        `${BASE_URL}/artilharia?size=12&page=${activePage}&size=20&sort=gol,desc`
+      )
       .then((response) => {
         setPage(response.data);
       });
-    }
+  }
 
   const changePage = (index: number) => {
     setActivePage(index);
@@ -71,15 +73,18 @@ const Artillery = () => {
         <table className="table table-striped table-sm">
           <thead>
             <tr>
+            <th>Id</th>
               <th>Nome</th>
               <th>Gols</th>
               <th>Assistências</th>
-              <th>Posicao</th>
+              <th>Posição</th>
+             
             </tr>
           </thead>
           <tbody>
             {page.content.map((arti) => (
               <tr key={arti.id}>
+                <td> {arti.id} </td>
                 <td> {arti.nome} </td>
                 <td> {arti.gol} </td>
                 <td> {arti.assistencia} </td>

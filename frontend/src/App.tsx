@@ -9,6 +9,7 @@ import Home from "pages/Home";
 import Listing from "pages/Listing";
 import Navbar from "components/Navbar";
 import Artillery from "pages/Artillery";
+import Ranking from "pages/Ranking";
 
 //<Route path="/form" element={<Form />} />
 
@@ -21,6 +22,7 @@ function App() {
 
         <Route path="/" element={<Home />} />
         <Route path="/listing" element={<Listing />} />
+        <Route path="/ranking" element={<Ranking />} />
         <Route path="/artillery" element={<Artillery />} />
         <Route path="/form" element={<Form />} />
         <Route path="/form/:id" element={<Form />} />

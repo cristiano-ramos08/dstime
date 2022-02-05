@@ -10,12 +10,14 @@ function Navbar() {
           <Link to="/">
             <h1>Raca Jovem FC</h1>
           </Link>
-          <Link className="btn btn-primary btn-lg" to="/artillery">
-            Artilharia
-          </Link>
-
+          <Link to="/listing">Jogadores</Link>{" "}
+          <Link to="/artillery">Artilharia</Link>
+          <Link to="/ranking">Ranking de artilharia</Link>
+          <Link to="/">Jogos</Link>
+          <Link to="/">Mensalidade</Link>
           <div className="dstime-fundacao-container">
             <LogoRaca />
+
             <p className="dstime-fundacao">Fundado em 2005</p>
           </div>
         </div>

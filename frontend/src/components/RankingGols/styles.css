@@ -1,0 +1,19 @@
+.dsartilharia {
+    
+    width: 30%;
+    margin-bottom : .5em;
+    table-layout: fixed;
+    text-align: center;
+    margin:auto;
+
+  }
+  
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto
+  }
+  
+  thead {
+    background-color: rgb(208, 226, 226);
+    height: 55px;
+}
