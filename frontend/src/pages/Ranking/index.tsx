@@ -1,12 +1,15 @@
 import RankingAssistencias from "components/RankingAssistencias";
 import RankingGols from "components/RankingGols";
+import "./styles.css";
 
 function Ranking() {
   return (
     <>
-      <RankingGols /> 
-      <RankingAssistencias />
-      
+     <br />
+      <div className="ranking">       
+        <RankingGols />
+        <RankingAssistencias />
+      </div>
     </>
   );
 }

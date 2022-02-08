@@ -45,7 +45,7 @@ const RankingGols = () => {
         <table className="table table-striped">
           <thead>
             <tr>
-              <th>Id</th>
+             
               <th>Nome</th>
               <th>Gols</th>
             </tr>
@@ -53,7 +53,7 @@ const RankingGols = () => {
           <tbody>
             {page.content.map((arti) => (
               <tr key={arti.id}>
-                <td width="10%"> {arti.id} </td>
+               
                 <td width="20%"> {arti.nome} </td>
                 <td width="30%"> {arti.gol} </td>
               </tr>

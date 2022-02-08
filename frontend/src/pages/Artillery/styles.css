@@ -1,15 +1,9 @@
 .artillery-header {
-
-
-    
     flex-direction: row;
     justify-content: space-between;
 }
 
 .artillery-header h1 {
-    
-   
     text-align: center;
-    flex-direction: row;
-    justify-content: space-between; 
+    
 }

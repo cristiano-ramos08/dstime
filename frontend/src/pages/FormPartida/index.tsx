@@ -2,27 +2,29 @@ import axios from "axios";
 import { useState, ChangeEvent, useEffect } from "react";
 import { BASE_URL } from "utils/requests";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import "./styles.css";
+//import "./styles.css";
 
 interface NewJogador {
   id: number;
-  nome: string;
-  gol: number;
-  assistencia: number;
-  posicao: string;
-  image: string;
+  timeRaca: string;
+  timeAdversario: string;
+  dataJogo: string;
+  local: string;
+  golsRaca: number;
+  golsAdversario: number;
 }
 
-const Form = () => {
+const FormPartida = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [model, setModel] = useState<NewJogador>({
     id: 0,
-    nome: "",
-    gol: 0,
-    assistencia: 0,
-    posicao: "",
-    image: "",
+    timeRaca: "Raça Jovem",
+    timeAdversario: "",
+    dataJogo: "",
+    local: "",
+    golsRaca: 0,
+    golsAdversario: 0,
   });
 
   useEffect(() => {
@@ -41,28 +43,29 @@ const Form = () => {
 
   async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
-   // try {
+    try {
       if (id !== undefined) {
         console.log(id);
         console.log(model);
-        await axios.put(`${BASE_URL}/artilharia/${id}`, model);
-      } else await axios.post(`${BASE_URL}/artilharia`, model);
-      navigate("/artillery");
-     // alert("salvo com sucesso");
-    //} catch (e) {
-    //  alert("fudeu");
-    //}
+        await axios.put(`${BASE_URL}/partida/${id}`, model);
+      } else await axios.post(`${BASE_URL}/partida`, model);
+      navigate("/partida");
+      alert("salvo com sucesso");
+    } catch (e) {
+      alert("fudeu");
+    }
   }
 
   async function findArtillery(id: any) {
-    const response = await axios.get(`${BASE_URL}/artilharia/${id}`);
+    const response = await axios.get(`${BASE_URL}/partida/${id}`);
     setModel({
       id: id,
-      nome: response.data.nome,
-      gol: response.data.gol,
-      assistencia: response.data.assistencia,
-      posicao: response.data.posicao,
-      image: response.data.image,
+      timeRaca: response.data.timeRaca,
+      timeAdversario: response.data.timeAdversario,
+      dataJogo: response.data.dataJogo,
+      local: response.data.local,
+      golsRaca: response.data.golsRaca,
+      golsAdversario: response.data.golsAdversario,
     });
   }
 
@@ -71,8 +74,8 @@ const Form = () => {
       <div className="container">
         <br />
         <div className="artillery-header">
-          <h1>Cadastro de jogador</h1>
-          <Link to="/artillery">
+          <h1>Cadastro de jogos</h1>
+          <Link to="/partida">
             <button type="button" className="btn btn-dark table-sm">
               Voltar
             </button>
@@ -82,63 +85,73 @@ const Form = () => {
         <div className="container">
           <form className="dsmovie-form" onSubmit={onSubmit}>
             <div className="form-group dstime-form-group">
-              <label>Nome</label>
+              <label>Raça Jovem</label>
 
               <input
                 type="text"
                 className="form-control"
-                name="nome"
-                value={model.nome}
+                name="timeRaca"
+                value={model.timeRaca}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               />
             </div>
             <div className="form-group dstime-form-group">
-              <label>Gol</label>
-              <input
-                type="number"
-                className="form-control"
-                name="gol"
-                value={model.gol}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-              />
-            </div>
-            <div className="form-group dstime-form-group">
-              <label>Assistencia</label>
-              <input
-                type="number"
-                className="form-control"
-                name="assistencia"
-                value={model.assistencia}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-              />
-            </div>
-            <div className="form-group dstime-form-group">
-              <label>Posição</label>
+              <label>Time adversário</label>
               <input
                 type="text"
                 className="form-control"
-                name="posicao"
-                value={model.posicao}
+                name="timeAdversario"
+                value={model.timeAdversario}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                
               />
             </div>
             <div className="form-group dstime-form-group">
-              <label>Imagem</label>
+              <label>Data jogo</label>
               <input
-                type="file"
+                type="text"
                 className="form-control"
-                name="image"
-                //value={model.image}
-                //onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                name="dataJogo"
+                value={model.dataJogo}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               />
             </div>
+            <div className="form-group dstime-form-group">
+              <label>Local</label>
+              <input
+                type="text"
+                className="form-control"
+                name="local"
+                value={model.local}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+              />
+            </div>
+            <div className="form-group dstime-form-group">
+              <label>Gols raça</label>
+              <input
+                type="number"
+                className="form-control"
+                name="golsRaca"
+                value={model.golsRaca}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+              />
+            </div>
+            <div className="form-group dstime-form-group">
+              <label>Gols adversário</label>
+              <input
+                type="number"
+                className="form-control"
+                name="golsAdversario"
+                value={model.golsAdversario}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+              />
+            </div>
+
             <br />
             <div className="dstime-form-btn-container">
               <button type="submit" className="btn btn-success">
                 Salvar
               </button>{" "}
-              <Link to="/artillery">
+              <Link to="/partida">
                 <button className="btn btn-danger">Cancelar</button>
               </Link>
             </div>
@@ -149,4 +162,4 @@ const Form = () => {
     </>
   );
 };
-export default Form;
+export default FormPartida;

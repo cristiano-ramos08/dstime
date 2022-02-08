@@ -44,9 +44,8 @@ const RankingAssistencias = () => {
 
         <br />
         <table className="table table-striped">
-          <thead >
+          <thead>
             <tr>
-              <th>Id</th>
               <th>Nome</th>
               <th>Assistências</th>
             </tr>
@@ -54,7 +53,6 @@ const RankingAssistencias = () => {
           <tbody>
             {page.content.map((arti) => (
               <tr key={arti.id}>
-                <td width="10%"> {arti.id} </td>
                 <td> {arti.nome} </td>
                 <td> {arti.assistencia} </td>
               </tr>

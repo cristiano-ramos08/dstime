@@ -13,8 +13,9 @@ function Navbar() {
           <Link to="/listing">Jogadores</Link>{" "}
           <Link to="/artillery">Artilharia</Link>
           <Link to="/ranking">Ranking de artilharia</Link>
-          <Link to="/">Jogos</Link>
+          <Link to="/partida">Jogos</Link>
           <Link to="/">Mensalidade</Link>
+          <Link to="/">Caixa</Link>
           <div className="dstime-fundacao-container">
             <LogoRaca />
 
