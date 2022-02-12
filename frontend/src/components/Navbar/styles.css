@@ -1,36 +1,123 @@
-header{
-    background-color: var(--color-primary);
-    height: 55px;
+nav {
+   background-color: var(--color-primary);
+  
+    
+    background-color: rgb(5, 3, 12);
+
+}
+a {
+    color: rgb(255, 251, 9);
+
 }
 
-.dstime-nav-content h1 {
-    margin: 0;
-    font-weight: 700;
+a:hover {
+    color: rgb(50, 62, 235);
+    text-decoration: none;
+
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Roboto", sans-serif;
+}
+
+.dstime-nav-content  {
     font-size: 28px;
-    color: rgb(0, 0, 0);
-}
-.dstime-nav-content p {
     margin: 0;
+    padding: 0;
+    line-height: 1;
     font-weight: 700;
-    font-size: 12px;
-    color: rgb(0, 0, 0);
+    text-transform: uppercase;  
+    
+      
 }
 
-.dstime-nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: rgb(43, 40, 40);
+.nav-link .text-info {
+    color: rgb(246, 250, 36)
     
 }
 
-.dstime-fundacao-container {
-    display: flex;
-    align-items: center;
-    margin: 7px 0 0 0px;
+.navbar-collapse {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+}
+.navbar-collapse ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.dstime-fundacao {
-    margin: 0 0 0 10px;
-    font-size: 12px;    
+.navbar-collapse > ul > li {
+    position: relative;
+    white-space: nowrap;
+    padding: 10px 0 10px 22px;
+}
+
+
+.navbar-collapse  {
+    position: relative;
+    white-space: nowrap;
+    padding: 10px 0 10px 22px;
+}
+
+.nav-linkk {
+    display: block;
+    position:relative;
+    color: rgb(246, 250, 10);
+    transition: 0.3s;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+    padding: 0 4px;
+    text-transform: uppercase;
+}
+
+
+.nav-link {
+   
+    color: rgb(253, 253, 253);
+    display: block;
+    position:relative;
+    
+}
+
+
+.navbar-collapse> ul > li a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background-color: rgb(68, 0, 255);
+    visibility: hidden;
+    width: 0px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-collapse a:hover::before,
+.navbar-collapse a::before {
+    visibility: visible;
+    width: 100%;
+}
+.navbar-collapse a:hover,
+.nav-menu li:hover > a {
+    color: rgb(68, 0, 255);
+}
+
+
+.navbar-collapse {
+    margin-left: 25px;
+    color: rgb(137, 173, 69);
+    border-radius: 4px;
+    padding: 6px 25px 8px 25px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 13px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+   
 }

@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "utils/requests";
 import "bootstrap/dist/css/bootstrap.css";
+import "./styles.css";
+
 
 import { TimePage } from "types/raca";
 
@@ -43,17 +45,20 @@ const RankingAssistencias = () => {
         </div>
 
         <br />
-        <table className="table table-striped">
+        <table className=" container larg table table-striped">
           <thead>
             <tr>
               <th>Nome</th>
-              <th>Assistências</th>
+            
+              <th>Assis.</th>
+
             </tr>
           </thead>
           <tbody>
             {page.content.map((arti) => (
               <tr key={arti.id}>
                 <td> {arti.nome} </td>
+              
                 <td> {arti.assistencia} </td>
               </tr>
             ))}

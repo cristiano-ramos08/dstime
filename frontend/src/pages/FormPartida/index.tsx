@@ -19,9 +19,9 @@ const FormPartida = () => {
   const { id } = useParams();
   const [model, setModel] = useState<NewJogador>({
     id: 0,
-    timeRaca: "Raça Jovem",
+    timeRaca: "Raça Jovem FC",
     timeAdversario: "",
-    dataJogo: "",
+    dataJogo: "2022-",
     local: "",
     golsRaca: 0,
     golsAdversario: 0,

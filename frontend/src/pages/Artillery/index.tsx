@@ -68,45 +68,49 @@ const Artillery = () => {
             </button>
           </Link>
         </div>
-        <Pagination page={page} onChange={changePage} />
+        
         <br />
-        <table className="table table-striped table-sm">
+        <table className="container table table-striped">
           <thead>
             <tr>
-            <th>Id</th>
-              <th>Nome</th>
               <th>Gols</th>
-              <th>Assistências</th>
+              <th>Assis.</th>
               <th>Posição</th>
-             
+              <th></th>
+              <th></th>
             </tr>
+            
           </thead>
           <tbody>
             {page.content.map((arti) => (
-              <tr key={arti.id}>
-                <td> {arti.id} </td>
+              <tr key={arti.id}>                
                 <td> {arti.nome} </td>
                 <td> {arti.gol} </td>
-                <td> {arti.assistencia} </td>
-                <td> {arti.posicao} </td>
+                <td> {arti.assistencia} </td>               
+            
                 <td>
                   <Link to={`/form/${arti.id}`}>
                     <button type="button" className="btn btn-primary btn-sm">
-                      Editar
+                      e
                     </button>{" "}
-                  </Link>
+                  </Link>                  
                   <button
                     type="button"
                     className="btn btn-danger btn-sm"
                     onClick={() => deleteArtillery(arti.id)}
                   >
-                    Remover
+                    x
                   </button>
+                  
                 </td>
+               
               </tr>
+              
             ))}
           </tbody>
+          
         </table>
+        <Pagination page={page} onChange={changePage} />
       </div>
     </>
   );

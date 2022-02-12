@@ -2,6 +2,7 @@
 
 
 const Home = () => {
+  
   return (
     <>
       <div className="container">
@@ -12,6 +13,7 @@ const Home = () => {
           <p>
             Esta aplicação foi desenvolvida para facilitar a inclusão de novos
             jogadores, a marcação de gols e assistencias para a artilharia
+           
           </p>
           
         </div>

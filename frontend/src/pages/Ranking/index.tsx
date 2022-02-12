@@ -6,9 +6,10 @@ function Ranking() {
   return (
     <>
      <br />
-      <div className="ranking">       
+      <div className="ranking">    
+        <RankingAssistencias />   
         <RankingGols />
-        <RankingAssistencias />
+        
       </div>
     </>
   );

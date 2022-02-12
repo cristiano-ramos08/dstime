@@ -39,11 +39,20 @@
 .dstime-card-bottom-container h2 {
     color: #4A4A4A;
     text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    min-height: 40px;
+}
+.dstime-card-bottom-container h3 {
+    color: #4A4A4A;
+    text-align: center;
     font-size: 14px;
     font-weight: 700;
     margin-bottom: 10px;
     min-height: 40px;
 }
+
 .dstime-btn {
     background-color: var(--color-primary);
     font-size: 14px;
@@ -54,3 +63,10 @@
     align-items: center;
     justify-content: center;
 } 
+.risco {
+    position: relative;
+    top: -20px;
+    height: 5px;
+    width: 250px;
+    background-color: rgb(48, 48, 46);
+}

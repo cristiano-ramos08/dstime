@@ -28,6 +28,7 @@ function PartidaCard({ jogo } : Props ) {
         </div>
         <h2>{jogo.dataJogo}</h2>
         <h2>{jogo.local}</h2>
+        <br />
        
       </div>
     </div>

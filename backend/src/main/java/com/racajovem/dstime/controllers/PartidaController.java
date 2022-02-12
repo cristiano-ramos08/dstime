@@ -35,12 +35,12 @@ private final PartidaRepository partidaRepository;
 	}
 	
 	 @GetMapping("/{id}")
-	    public Partida getJogador(@PathVariable Long id) {
+	    public Partida getPartida(@PathVariable Long id) {
 	        return partidaRepository.findById(id).orElseThrow(RuntimeException::new);
 	    }
 
 	    @PostMapping
-	    public ResponseEntity<Partida> createJogador(@RequestBody Partida partida) throws URISyntaxException {
+	    public ResponseEntity<Partida> createPartida(@RequestBody Partida partida) throws URISyntaxException {
 	        Partida savedPartida = partidaRepository.save(partida);
 	        return ResponseEntity.created(new URI("/partida/" + savedPartida.getId())).body(savedPartida);
 	    }

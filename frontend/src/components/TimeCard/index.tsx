@@ -13,9 +13,10 @@ function TimeCard({ timeRaca }  : Props ) {
      <img className="dstime-time-card-image" src={timeRaca.image} alt="jogador" />
       <div className="dstime-card-bottom-container">
         <h2>{timeRaca.nome}</h2>
+        <div className="risco"></div>
         <p><Bola /> {timeRaca.gol}</p>
         <p><Assistencia /> {timeRaca.assistencia}</p>
-        <h2>{timeRaca.posicao}</h2>
+        <h3>{timeRaca.posicao}</h3>
       </div>
     </div>
   );

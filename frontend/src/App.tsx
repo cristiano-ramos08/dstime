@@ -12,6 +12,7 @@ import Navbar from "components/Navbar";
 import Artillery from "pages/Artillery";
 import Ranking from "pages/Ranking";
 import Partida from "pages/Partida";
+import Footer from "components/Footer";
 
 //<Route path="/form" element={<Form />} />
 
@@ -29,12 +30,14 @@ function App() {
         <Route path="/artillery" element={<Artillery />} />
         <Route path="/form" element={<Form />} />
         <Route path="/form/:id" element={<Form />} />
+        <Route path="/formPartida/:id" element={<FormPartida />} />
         <Route path="/formPartida" element={<FormPartida />} />
 
        
        
         
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

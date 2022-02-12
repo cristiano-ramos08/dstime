@@ -19,24 +19,44 @@ function Partida() {
     numberOfElements: 0,
     empty: true,
   });
-
+  /*
   useEffect(() => {
     axios
       .get(
-        `${BASE_URL}/partida?size=6&page=${pageNumber}&size=20&sort=dataJogo,desc`
+        `${BASE_URL}/partida?size=12&page=${pageNumber}&size=20&sort=dataJogo,desc`
       )
       .then((response) => {
         const data = response.data as PartidaPage;
         setPage(data);
       });
   }, [pageNumber]);
+*/
+  useEffect(() => {
+    loadArtillery();
+  }, [pageNumber]);
+
+  async function loadArtillery() {
+    axios
+      .get(
+        `${BASE_URL}/partida?size=12&page=${pageNumber}&size=20&sort=dataJogo,desc`
+      )
+      .then((response) => {
+        setPage(response.data);
+      });
+  }
 
   const changePage = (index: number) => {
     setPageNumber(index);
   };
 
+  async function deleteArtillery(id: number) {
+    await axios.delete(`${BASE_URL}/partida/${id}`);
+    loadArtillery();
+    // alert('Jogador excluído com sucesso');
+  }
   return (
     <>
+      
       <Pagination page={page} onChange={changePage} />
 
       <div className="container">
@@ -46,11 +66,27 @@ function Partida() {
           </button>
           <br />
         </Link>
+      
+
+               
+          
         <br />
         <div className="row">
           {page.content.map((item) => (
             <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
               <PartidaCard jogo={item} />
+              <Link to={`/formPartida/${item.id}`}>
+                <button type="button" className="btn btn-link btn-sm">
+                  Editar
+                </button>{" "}
+              </Link>
+              <button
+                    type="button"
+                    className="btn btn-link btn-sm"
+                    onClick={() => deleteArtillery(item.id)}
+                  >
+                    Remover
+                  </button>
             </div>
           ))}
         </div>

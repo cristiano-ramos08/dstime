@@ -32,7 +32,6 @@ const RankingGols = () => {
         setPage(response.data);
       });
   }
-
   return (
     <>
       <div className="dsartilharia">
@@ -42,7 +41,7 @@ const RankingGols = () => {
         </div>
 
         <br />
-        <table className="table table-striped">
+        <table className="container larg table table-striped">
           <thead>
             <tr>
              
