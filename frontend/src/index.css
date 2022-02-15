@@ -2,6 +2,8 @@
 
 :root {
   --color-primary: rgb(251, 255, 44);
+  
+  
 }
 
 * {
@@ -10,11 +12,31 @@
 }
 
 html, body {
-    background-color: #fff6f6f6;
-    padding: 30px;
+  min-height: 100%;
+  position: relative;
+    height: 200px;
+    margin-top: 70px;
+
 }
+
+body {
+
+  padding: 0;
+  margin: 0;
+}
+
 
 a, a:hover {
   text-decoration: none;
   color: unset;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(36, 57, 243);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+
 }

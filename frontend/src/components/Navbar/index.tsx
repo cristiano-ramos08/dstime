@@ -40,7 +40,7 @@ const Navbar = () => {
               Ranking de artilharia
             </a>
             <a className="nav-link" href="/partida">
-              Partida
+              Partidas
             </a>
           </div>
         </div>

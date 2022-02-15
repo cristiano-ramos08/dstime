@@ -73,7 +73,7 @@ const Form = () => {
         <div className="artillery-header">
           <h1>Cadastro de jogador</h1>
           <Link to="/artillery">
-            <button type="button" className="btn btn-dark table-sm">
+            <button type="button" className="btn btn-center btn-dark table-sm">
               Voltar
             </button>
           </Link>
@@ -135,11 +135,11 @@ const Form = () => {
             </div>
             <br />
             <div className="dstime-form-btn-container">
-              <button type="submit" className="btn btn-success">
+              <button type="submit" className="btn btn-success btn-sm">
                 Salvar
               </button>{" "}
               <Link to="/artillery">
-                <button className="btn btn-danger">Cancelar</button>
+                <button className="btn btn-danger btn-sm">Cancelar</button>
               </Link>
             </div>
           </form>

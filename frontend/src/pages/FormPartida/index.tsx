@@ -76,7 +76,7 @@ const FormPartida = () => {
         <div className="artillery-header">
           <h1>Cadastro de jogos</h1>
           <Link to="/partida">
-            <button type="button" className="btn btn-dark table-sm">
+            <button type="button" className="btn btn-center btn-dark table-sm">
               Voltar
             </button>
           </Link>

@@ -41,7 +41,7 @@ const RankingAssistencias = () => {
         <br />
 
         <div className="artillery-header">
-          <h1>Assistências</h1>
+          <h1>Assis.</h1>
         </div>
 
         <br />

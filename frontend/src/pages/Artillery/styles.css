@@ -2,6 +2,7 @@
     flex-direction: row;
     justify-content: space-between;
     
+    
 }
 
 .artillery-header h1 {
@@ -12,6 +13,13 @@
 .table th {
     background-color: rgb(251, 255, 44);
     
+    
+}
+
+
+.table td {
+   padding: 3px;
+  
 }
 .artillery-header button:hover,
 .nav-menu  > a {
@@ -19,5 +27,24 @@
 }
 
 .table {
-    width: 50%;
+    
+    font-size: 14px;
 }
+.btn-center{
+    position: relative;
+    left: 19px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.table-responsive {
+    width: 70%;
+    display: flex;
+    font-size: 100px;
+         
+}
+
+.btn-tamanho  {
+    font-size: 100%;
+    padding: 1px;
+}
+

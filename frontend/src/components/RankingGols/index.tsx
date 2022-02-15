@@ -47,6 +47,7 @@ const RankingGols = () => {
              
               <th>Nome</th>
               <th>Gols</th>
+              
             </tr>
           </thead>
           <tbody>

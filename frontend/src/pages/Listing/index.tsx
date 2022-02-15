@@ -4,6 +4,7 @@ import TimeCard from "components/TimeCard";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "utils/requests";
 import { TimePage } from 'types/raca';
+import { Link } from "react-router-dom";
 
 //import { Link } from "react-router-dom";
 
@@ -37,9 +38,18 @@ function Listing() {
   
   return (
     <>
-      <Pagination page={page} onChange={changePage} />
+      <br />
+     
+         
 
       <div className="container">
+      <Link to="/form">
+            <button type="button" className="btn btn-center btn-dark table-sm">
+              Novo jogador
+            </button>
+          </Link>
+          <br />
+      <br />
         <div className="row">
           {page.content.map(item => (
             <div key={item.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
@@ -48,6 +58,7 @@ function Listing() {
             )
           )}
         </div>
+        <Pagination page={page} onChange={changePage} />
       </div>
     </>
   );

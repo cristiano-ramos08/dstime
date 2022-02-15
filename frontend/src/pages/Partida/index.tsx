@@ -5,6 +5,8 @@ import { BASE_URL } from "utils/requests";
 import PartidaCard from "components/PartidaCard";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { ReactComponent as PencilBlack } from 'assets/img/pencil_black.svg';
+import { ReactComponent as Excluir } from 'assets/img/excluir.svg';
 
 function Partida() {
   const [pageNumber, setPageNumber] = useState(0);
@@ -57,7 +59,7 @@ function Partida() {
   return (
     <>
       
-      <Pagination page={page} onChange={changePage} />
+      
 
       <div className="container">
         <Link to="/formPartida">
@@ -65,10 +67,7 @@ function Partida() {
             Novo Jogo
           </button>
           <br />
-        </Link>
-      
-
-               
+        </Link>              
           
         <br />
         <div className="row">
@@ -76,21 +75,22 @@ function Partida() {
             <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
               <PartidaCard jogo={item} />
               <Link to={`/formPartida/${item.id}`}>
-                <button type="button" className="btn btn-link btn-sm">
-                  Editar
+                <button type="button" className="btn btn- btn-sm">
+                <PencilBlack />
                 </button>{" "}
               </Link>
               <button
                     type="button"
-                    className="btn btn-link btn-sm"
+                    className="btn btn-ranger btn-sm"
                     onClick={() => deleteArtillery(item.id)}
                   >
-                    Remover
+                    <Excluir />
                   </button>
             </div>
           ))}
         </div>
       </div>
+      <Pagination page={page} onChange={changePage} />
     </>
   );
 }

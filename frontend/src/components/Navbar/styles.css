@@ -61,19 +61,6 @@ h1,h2,h3,h4,h5,h6 {
     padding: 10px 0 10px 22px;
 }
 
-.nav-linkk {
-    display: block;
-    position:relative;
-    color: rgb(246, 250, 10);
-    transition: 0.3s;
-    font-size: 15px;
-    font-weight: 500;
-    font-family: "Roboto", sans-serif;
-    padding: 0 4px;
-    text-transform: uppercase;
-}
-
-
 .nav-link {
    
     color: rgb(253, 253, 253);

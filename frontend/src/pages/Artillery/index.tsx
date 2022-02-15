@@ -6,6 +6,7 @@ import "./styles.css";
 import { Link } from "react-router-dom";
 import { TimePage } from "types/raca";
 import Pagination from "components/Pagination";
+import { ReactComponent as Pencil } from "assets/img/pencil.svg";
 
 /*
 interface Iartilheiro {
@@ -62,54 +63,51 @@ const Artillery = () => {
 
         <div className="artillery-header">
           <h1>Lista de artilheiros</h1>
-          <Link to="/form">
-            <button type="button" className="btn btn-dark table-sm">
-              Novo jogador
-            </button>
-          </Link>
         </div>
-        
+
         <br />
-        <table className="container table table-striped">
-          <thead>
-            <tr>
-              <th>Gols</th>
-              <th>Assis.</th>
-              <th>Posição</th>
-              <th></th>
-              <th></th>
-            </tr>
-            
-          </thead>
-          <tbody>
-            {page.content.map((arti) => (
-              <tr key={arti.id}>                
-                <td> {arti.nome} </td>
-                <td> {arti.gol} </td>
-                <td> {arti.assistencia} </td>               
-            
-                <td>
-                  <Link to={`/form/${arti.id}`}>
-                    <button type="button" className="btn btn-primary btn-sm">
-                      e
-                    </button>{" "}
-                  </Link>                  
-                  <button
-                    type="button"
-                    className="btn btn-danger btn-sm"
-                    onClick={() => deleteArtillery(arti.id)}
-                  >
-                    x
-                  </button>
-                  
-                </td>
-               
+        <div className="table-responsive container">
+          <table className="container table table-striped table-hover table-condensed">
+            <thead>
+              <tr className="active">
+              <th>ID</th>
+                <th>Nome</th>
+                <th>Gols</th>
+                <th>Assis.</th>
+
+                <th></th>
               </tr>
-              
-            ))}
-          </tbody>
-          
-        </table>
+            </thead>
+            <tbody>
+              {page.content.map((arti) => (
+                <tr key={arti.id}>
+                      <td> {arti.id} </td>
+                  <td> {arti.nome} </td>
+                  <td> {arti.gol} </td>
+                  <td> {arti.assistencia} </td>
+
+                  <td>
+                    <Link to={`/form/${arti.id}`}>
+                      <button
+                        type="button"
+                        className="btn btn-tamanho btn-primary btn-sm "
+                      >
+                        <Pencil />
+                      </button>{" "}
+                    </Link>
+                    <button
+                      type="button"
+                      className="btn btn-tamanho btn-danger btn-sm"
+                      onClick={() => deleteArtillery(arti.id)}
+                    >
+                      X
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
         <Pagination page={page} onChange={changePage} />
       </div>
     </>
