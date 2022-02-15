@@ -12,8 +12,7 @@
 
 .table th {
     background-color: rgb(251, 255, 44);
-    
-    
+     
 }
 
 
@@ -32,7 +31,7 @@
 }
 .btn-center{
     position: relative;
-    left: 19px;
+    left: 10px;
     flex-direction: row;
     justify-content: space-between;
 }

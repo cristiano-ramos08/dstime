@@ -26,13 +26,13 @@ function Footer() {
             <i className="fab fa-instagram"></i>
             <Instagram />
           </a>
+          <br />
+        
         </section>
       </div>
 
       <div className="text-center p-3">
-        <a className="text-white" href="https://mdbootstrap.com/">
-          Raça Jovem FC
-        </a>
+      Contato para jogos: (11)94698-6114 
       </div>
       
     </footer>
