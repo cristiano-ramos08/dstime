@@ -4,11 +4,12 @@ import { PartidaPage } from "types/partida";
 import { BASE_URL } from "utils/requests";
 import PartidaCard from "components/PartidaCard";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as PencilBlack } from 'assets/img/pencil_black.svg';
 import { ReactComponent as Excluir } from 'assets/img/excluir.svg';
 
 function Partida() {
+  const navigate = useNavigate();
   const [pageNumber, setPageNumber] = useState(0);
   const [page, setPage] = useState<PartidaPage>({
     content: [],
@@ -50,7 +51,10 @@ function Partida() {
   };
 
   async function deleteArtillery(id: number) {
-    await axios.delete(`${BASE_URL}/partida/${id}`);
+    try {
+    window.confirm("Tem certeza que deseja excluir essa partida?")
+    ? await axios.delete(`${BASE_URL}/partida/${id}`)
+    : navigate("/partida");
     axios
       .get(
         `${BASE_URL}/partida?size=12&page=${pageNumber}&size=20&sort=dataJogo,desc`
@@ -58,8 +62,12 @@ function Partida() {
       .then((response) => {
         setPage(response.data);
       });
-    // alert('Jogador excluído com sucesso');
+    } catch (e) {
+      alert("fudeu");
+    }
   }
+
+
   return (
     <>
       
