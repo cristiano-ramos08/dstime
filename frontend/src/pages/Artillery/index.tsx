@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { BASE_URL } from "utils/requests";
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { TimePage } from "types/raca";
 import Pagination from "components/Pagination";
 import { ReactComponent as Pencil } from "assets/img/pencil.svg";
@@ -19,7 +19,7 @@ interface Iartilheiro {
 }
 */
 const Artillery = () => {
-  const navigate = useNavigate();
+ // const navigate = useNavigate();
   const [activePage, setActivePage] = useState(0);
   const [page, setPage] = useState<TimePage>({
     content: [],
@@ -43,17 +43,17 @@ const Artillery = () => {
       });
   }, [activePage]);
 
- 
   const changePage = (index: number) => {
     setActivePage(index);
   };
 
+/*
   async function deleteArtillery(id: number) {
     try {
       window.confirm("Tem certeza que deseja excluir esse cara ruim de bola?")
         ? await axios.delete(`${BASE_URL}/artilharia/${id}`)
         : navigate("/artillery");
-        axios
+      axios
         .get(
           `${BASE_URL}/artilharia?size=12&page=${activePage}&size=20&sort=gol,desc`
         )
@@ -64,6 +64,7 @@ const Artillery = () => {
       alert("fudeu");
     }
   }
+  */
 
   return (
     <>
@@ -102,13 +103,8 @@ const Artillery = () => {
                         <Pencil />
                       </button>{" "}
                     </Link>
-                    <button
-                      type="button"
-                      className="btn btn-tamanho btn-danger btn-sm"
-                      onClick={() => deleteArtillery(arti.id)}
-                    >
-                      X
-                    </button>
+                  
+                  
                   </td>
                 </tr>
               ))}
