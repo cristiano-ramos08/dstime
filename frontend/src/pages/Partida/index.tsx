@@ -34,18 +34,16 @@ function Partida() {
   }, [pageNumber]);
 */
   useEffect(() => {
-    loadArtillery();
+    axios
+    .get(
+      `${BASE_URL}/partida?size=12&page=${pageNumber}&size=20&sort=dataJogo,desc`
+    )
+    .then((response) => {
+      setPage(response.data);
+    });
   }, [pageNumber]);
 
-  async function loadArtillery() {
-    axios
-      .get(
-        `${BASE_URL}/partida?size=12&page=${pageNumber}&size=20&sort=dataJogo,desc`
-      )
-      .then((response) => {
-        setPage(response.data);
-      });
-  }
+  
 
   const changePage = (index: number) => {
     setPageNumber(index);
@@ -53,7 +51,13 @@ function Partida() {
 
   async function deleteArtillery(id: number) {
     await axios.delete(`${BASE_URL}/partida/${id}`);
-    loadArtillery();
+    axios
+      .get(
+        `${BASE_URL}/partida?size=12&page=${pageNumber}&size=20&sort=dataJogo,desc`
+      )
+      .then((response) => {
+        setPage(response.data);
+      });
     // alert('Jogador excluído com sucesso');
   }
   return (

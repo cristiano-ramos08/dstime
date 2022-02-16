@@ -20,9 +20,16 @@ const RankingGols = () => {
   });
 
   useEffect(() => {
-    loadArtillery();
+    axios
+    .get(
+      `${BASE_URL}/artilharia?size=3&page=${activePage}&size=20&sort=gol,desc`
+    )
+    .then((response) => {
+      setPage(response.data);
+    });
   }, [activePage]);
 
+  /*
   async function loadArtillery() {
     axios
       .get(
@@ -32,6 +39,7 @@ const RankingGols = () => {
         setPage(response.data);
       });
   }
+*/
   return (
     <>
       <div className="dsartilharia">

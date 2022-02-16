@@ -22,9 +22,15 @@ const RankingAssistencias = () => {
   });
 
   useEffect(() => {
-    loadArtillery();
+    axios
+    .get(
+      `${BASE_URL}/artilharia?size=3&page=${activePage}&size=20&sort=assistencia,desc`
+    )
+    .then((response) => {
+      setPage(response.data);
+    });
   }, [activePage]);
-
+/*
   async function loadArtillery() {
     axios
       .get(
@@ -33,7 +39,7 @@ const RankingAssistencias = () => {
       .then((response) => {
         setPage(response.data);
       });
-  }
+  }*/
 
   return (
     <>

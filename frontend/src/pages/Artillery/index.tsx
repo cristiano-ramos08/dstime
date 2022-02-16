@@ -34,10 +34,6 @@ const Artillery = () => {
   });
 
   useEffect(() => {
-    loadArtillery();
-  }, [activePage]);
-
-  async function loadArtillery() {
     axios
       .get(
         `${BASE_URL}/artilharia?size=12&page=${activePage}&size=20&sort=gol,desc`
@@ -45,8 +41,9 @@ const Artillery = () => {
       .then((response) => {
         setPage(response.data);
       });
-  }
+  }, [activePage]);
 
+ 
   const changePage = (index: number) => {
     setActivePage(index);
   };
@@ -56,7 +53,13 @@ const Artillery = () => {
       window.confirm("Tem certeza que deseja excluir esse cara ruim de bola?")
         ? await axios.delete(`${BASE_URL}/artilharia/${id}`)
         : navigate("/artillery");
-      loadArtillery();
+        axios
+        .get(
+          `${BASE_URL}/artilharia?size=12&page=${activePage}&size=20&sort=gol,desc`
+        )
+        .then((response) => {
+          setPage(response.data);
+        });
     } catch (e) {
       alert("fudeu");
     }
