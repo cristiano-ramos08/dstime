@@ -32,7 +32,7 @@ function Footer() {
       </div>
 
       <div className="text-center p-3">
-      Contato para jogos: (11)94698-6114 
+      Contato para jogos: (11)94698-6114 - Fabiano
       </div>
       
     </footer>

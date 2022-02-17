@@ -20,8 +20,7 @@ const Home = () => {
           
           <h2>          
             <br />
-            Time Raça Jovem FC foi fundado no ano de 2005, pelos irmãos Fabiano, Lula e Rafael e os amigos Diego e Eliel. De lá para cá, o time passou por grandes mudanças, se tornando cada vez mais forte e pronto para qualquer campeonato. Os nomes raça e jovem não condiz mais com a atualidade da maioria dos jogadores, pois a idade chega para todos. Então, o time vem dando espaço para grandes promessas juvenis. 
-           
+            Time Raça Jovem FC foi fundado no ano de 2005 por Fabiano, Rafael e Diego. De lá para cá, o time passou por grandes mudanças, se tornando cada vez mais forte e pronto para qualquer campeonato.           
           </h2>
         </div>
         <br />

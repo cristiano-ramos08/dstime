@@ -5,11 +5,10 @@ import "./styles.css";
 function Ranking() {
   return (
     <>
-     <br />
-      <div className="ranking">    
-        <RankingAssistencias />   
+      <br />
+      <div className="ranking">
         <RankingGols />
-        
+        <RankingAssistencias />
       </div>
     </>
   );

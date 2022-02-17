@@ -5,8 +5,8 @@ import { BASE_URL } from "utils/requests";
 import PartidaCard from "components/PartidaCard";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { ReactComponent as PencilBlack } from 'assets/img/pencil_black.svg';
-import { ReactComponent as Excluir } from 'assets/img/excluir.svg';
+import { ReactComponent as PencilBlack } from "assets/img/pencil_black.svg";
+import { ReactComponent as Excluir } from "assets/img/excluir.svg";
 
 function Partida() {
   const navigate = useNavigate();
@@ -36,15 +36,13 @@ function Partida() {
 */
   useEffect(() => {
     axios
-    .get(
-      `${BASE_URL}/partida?size=12&page=${pageNumber}&size=20&sort=dataJogo,desc`
-    )
-    .then((response) => {
-      setPage(response.data);
-    });
+      .get(
+        `${BASE_URL}/partida?size=12&page=${pageNumber}&size=20&sort=dataJogo,desc`
+      )
+      .then((response) => {
+        setPage(response.data);
+      });
   }, [pageNumber]);
-
-  
 
   const changePage = (index: number) => {
     setPageNumber(index);
@@ -52,35 +50,31 @@ function Partida() {
 
   async function deleteArtillery(id: number) {
     try {
-    window.confirm("Tem certeza que deseja excluir essa partida?")
-    ? await axios.delete(`${BASE_URL}/partida/${id}`)
-    : navigate("/partida");
-    axios
-      .get(
-        `${BASE_URL}/partida?size=12&page=${pageNumber}&size=20&sort=dataJogo,desc`
-      )
-      .then((response) => {
-        setPage(response.data);
-      });
+      window.confirm("Tem certeza que deseja excluir essa partida?")
+        ? await axios.delete(`${BASE_URL}/partida/${id}`)
+        : navigate("/partida");
+      axios
+        .get(
+          `${BASE_URL}/partida?size=12&page=${pageNumber}&size=20&sort=dataJogo,desc`
+        )
+        .then((response) => {
+          setPage(response.data);
+        });
     } catch (e) {
       alert("fudeu");
     }
   }
 
-
   return (
     <>
-      
-      
-
       <div className="container">
         <Link to="/formPartida">
           <button type="button" className="btn btn-dark table-sm">
             Novo Jogo
           </button>
           <br />
-        </Link>              
-          
+        </Link>
+
         <br />
         <div className="row">
           {page.content.map((item) => (
@@ -88,16 +82,16 @@ function Partida() {
               <PartidaCard jogo={item} />
               <Link to={`/formPartida/${item.id}`}>
                 <button type="button" className="btn btn- btn-sm">
-                <PencilBlack />
+                  <PencilBlack />
                 </button>{" "}
               </Link>
               <button
-                    type="button"
-                    className="btn btn-ranger btn-sm"
-                    onClick={() => deleteArtillery(item.id)}
-                  >
-                    <Excluir />
-                  </button>
+                type="button"
+                className="btn btn-ranger btn-sm"
+                onClick={() => deleteArtillery(item.id)}
+              >
+                <Excluir />
+              </button>
             </div>
           ))}
         </div>
