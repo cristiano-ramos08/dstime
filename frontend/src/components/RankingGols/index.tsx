@@ -1,12 +1,15 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "utils/requests";
+import Loading from "components/Loading";
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles.css";
 import { TimePage } from "types/raca";
 
 const RankingGols = () => {
   const [activePage] = useState(0);
+  const [removeLoading, setRemoveLoading] = useState(false)
+
   const [page, setPage] = useState<TimePage>({
     content: [],
     last: true,
@@ -20,13 +23,17 @@ const RankingGols = () => {
   });
 
   useEffect(() => {
+    setTimeout(   
+      () => {
     axios
     .get(
       `${BASE_URL}/artilharia?size=3&page=${activePage}&size=20&sort=gol,desc`
     )
     .then((response) => {
       setPage(response.data);
+      setRemoveLoading(true)
     });
+  }, 500)
   }, [activePage]);
 
   /*
@@ -68,6 +75,10 @@ const RankingGols = () => {
             ))}
           </tbody>
         </table>
+        {!removeLoading &&  <Loading />}
+          {removeLoading && page.content.length === 0 && (
+          <p>Não há jogadores cadastrados!</p>
+          )}
       </div>
     </>
   );

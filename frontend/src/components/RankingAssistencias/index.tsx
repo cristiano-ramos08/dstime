@@ -6,9 +6,11 @@ import "./styles.css";
 
 
 import { TimePage } from "types/raca";
+import Loading from "components/Loading";
 
 const RankingAssistencias = () => {
   const [activePage] = useState(0);
+  const [removeLoading, setRemoveLoading] = useState(false)
   const [page, setPage] = useState<TimePage>({
     content: [],
     last: true,
@@ -22,13 +24,17 @@ const RankingAssistencias = () => {
   });
 
   useEffect(() => {
+    setTimeout (
+      () => {
     axios
     .get(
       `${BASE_URL}/artilharia?size=3&page=${activePage}&size=20&sort=assistencia,desc`
     )
     .then((response) => {
       setPage(response.data);
+      setRemoveLoading(true)
     });
+  }, 500)
   }, [activePage]);
 /*
   async function loadArtillery() {
@@ -70,6 +76,10 @@ const RankingAssistencias = () => {
             ))}
           </tbody>
         </table>
+        {!removeLoading &&  <Loading />}
+          {removeLoading && page.content.length === 0 && (
+          <p>Não há jogadores cadastrados!</p>
+          )}
       </div>
     </>
   );

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { TimePage } from "types/raca";
 import Pagination from "components/Pagination";
 import { ReactComponent as Pencil } from "assets/img/pencil.svg";
+import Loading from "components/Loading";
 
 /*
 interface Iartilheiro {
@@ -21,6 +22,7 @@ interface Iartilheiro {
 const Artillery = () => {
  // const navigate = useNavigate();
   const [activePage, setActivePage] = useState(0);
+  const [removeLoading, setRemoveLoading] = useState(false)
   const [page, setPage] = useState<TimePage>({
     content: [],
     last: true,
@@ -34,13 +36,17 @@ const Artillery = () => {
   });
 
   useEffect(() => {
+    setTimeout(   
+      () => {
     axios
       .get(
-        `${BASE_URL}/artilharia?size=22&page=${activePage}&size=20&sort=gol,desc`
+        `${BASE_URL}/artilharia?size=12&page=${activePage}&size=20&sort=gol,desc`
       )
       .then((response) => {
         setPage(response.data);
+        setRemoveLoading(true)
       });
+    }, 3000)
   }, [activePage]);
 
   const changePage = (index: number) => {
@@ -110,7 +116,12 @@ const Artillery = () => {
               ))}
             </tbody>
           </table>
+         
         </div>
+        {!removeLoading &&  <Loading />}
+          {removeLoading && page.content.length === 0 && (
+          <p>Não há jogadores cadastrados!</p>
+        )}
         <Pagination page={page} onChange={changePage} />
       </div>
     </>

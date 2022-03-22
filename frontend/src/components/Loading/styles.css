@@ -1,8 +1,8 @@
-.cris{
-    width: 25%;
-    height: 25%;
+
+.loader{
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-       
+    
 }

@@ -7,10 +7,12 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as PencilBlack } from "assets/img/pencil_black.svg";
 import { ReactComponent as Excluir } from "assets/img/excluir.svg";
+import Loading from "components/Loading";
 
 function Partida() {
   const navigate = useNavigate();
   const [pageNumber, setPageNumber] = useState(0);
+  const [removeLoading, setRemoveLoading] = useState(false)
   const [page, setPage] = useState<PartidaPage>({
     content: [],
     last: true,
@@ -35,13 +37,17 @@ function Partida() {
   }, [pageNumber]);
 */
   useEffect(() => {
+    setTimeout(   
+      () => {
     axios
       .get(
         `${BASE_URL}/partida?size=12&page=${pageNumber}&size=20&sort=dataJogo,desc`
       )
       .then((response) => {
         setPage(response.data);
+        setRemoveLoading(true)
       });
+  }, 500)
   }, [pageNumber]);
 
   const changePage = (index: number) => {
@@ -95,6 +101,10 @@ function Partida() {
             </div>
           ))}
         </div>
+        {!removeLoading &&  <Loading />}
+          {removeLoading && page.content.length === 0 && (
+          <p>Não há jogadores cadastrados!</p>
+        )}
       </div>
       <Pagination page={page} onChange={changePage} />
     </>

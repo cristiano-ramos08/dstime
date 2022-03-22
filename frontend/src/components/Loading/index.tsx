@@ -5,7 +5,7 @@ function Loading(){
     return (
         <div className="styles.loader_container">
 
-        <Loader  className="cris" />
+        <Loader  className="loader'" />
         </div>
     );
 }
