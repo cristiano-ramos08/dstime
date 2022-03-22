@@ -1,5 +1,7 @@
 import { ReactComponent as Arrow } from "assets/img/arrow.svg";
 import { TimePage } from 'types/raca';
+
+
 import "./styles.css";
 
 
@@ -10,11 +12,15 @@ type Props = {
 
 
 function Pagination({ page, onChange } : Props) {
+  
+
+
 
     return (
     <div className="dsmovie-pagination-container">
       <div className="dsmovie-pagination-box">
         <button
+        
           className="dsmovie-pagination-button"
           disabled={page.first} onClick={() => onChange(page.number - 1)} >
           <Arrow />

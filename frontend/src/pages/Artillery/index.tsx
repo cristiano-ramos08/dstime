@@ -36,7 +36,7 @@ const Artillery = () => {
   useEffect(() => {
     axios
       .get(
-        `${BASE_URL}/artilharia?size=12&page=${activePage}&size=20&sort=gol,desc`
+        `${BASE_URL}/artilharia?size=22&page=${activePage}&size=20&sort=gol,desc`
       )
       .then((response) => {
         setPage(response.data);

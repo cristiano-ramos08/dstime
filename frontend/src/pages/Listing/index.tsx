@@ -1,6 +1,7 @@
 import axios from "axios";
 import Pagination from "components/Pagination";
 import TimeCard from "components/TimeCard";
+import Loading from "components/Loading";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "utils/requests";
 import { TimePage } from "types/raca";
@@ -10,6 +11,7 @@ import { Link } from "react-router-dom";
 
 function Listing() {
   const [pageNumber, setPageNumber] = useState(0);
+  const [removeLoading, setRemoveLoading] = useState(false)
   const [page, setPage] = useState<TimePage>({
     content: [],
     last: true,
@@ -23,14 +25,21 @@ function Listing() {
   });
 
   useEffect(() => {
-    axios
+    setTimeout(   
+    () => {
+      axios
       .get(
         `${BASE_URL}/artilharia?size=12&page=${pageNumber}&size=20&sort=gol,desc`
       )
       .then((response) => {
         const data = response.data as TimePage;
         setPage(data);
+        setRemoveLoading(true)
       });
+    }, 500)
+    /*
+  
+      */
   }, [pageNumber]);
 
   const changePage = (index: number) => {
@@ -55,8 +64,16 @@ function Listing() {
               <TimeCard timeRaca={item} />
             </div>
           ))}
+          {!removeLoading &&  <Loading />}
+          {removeLoading && page.content.length === 0 && (
+          <p>Não há jogadores cadastrados!</p>
+        )}
         </div>
+      
         <Pagination page={page} onChange={changePage} />
+        
+       
+       
       </div>
     </>
   );

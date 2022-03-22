@@ -51,3 +51,15 @@
 .dsmovie-flip-horizontal {
     transform: rotate(180deg);
 }
+
+.dsmovie-pagination-box {
+    height: '600vh';
+     position: 'relative';
+}
+
+.dsmovie-pagination-button {
+    position: 'fixed'; 
+    bottom: '20px';
+     background: '#333';
+      color: 'white';
+}
