@@ -2,8 +2,10 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "utils/requests";
 import "bootstrap/dist/css/bootstrap.css";
-import "./styles.css";
+//import { Link, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "./styles.css";
+
 import { TimePage } from "types/raca";
 import Pagination from "components/Pagination";
 import { ReactComponent as Pencil } from "assets/img/pencil.svg";
@@ -40,19 +42,18 @@ const Artillery = () => {
       () => {
     axios
       .get(
-        `${BASE_URL}/artilharia?size=12&page=${activePage}&size=20&sort=gol,desc`
+        `${BASE_URL}/artilharia?size=20&page=${activePage}&size=20&sort=gol,desc`
       )
       .then((response) => {
         setPage(response.data);
         setRemoveLoading(true)
       });
-    }, 3000)
+    }, 300)
   }, [activePage]);
 
   const changePage = (index: number) => {
     setActivePage(index);
   };
-
 /*
   async function deleteArtillery(id: number) {
     try {
@@ -61,7 +62,7 @@ const Artillery = () => {
         : navigate("/artillery");
       axios
         .get(
-          `${BASE_URL}/artilharia?size=12&page=${activePage}&size=20&sort=gol,desc`
+          `${BASE_URL}/artilharia?size=20&page=${activePage}&size=20&sort=gol,desc`
         )
         .then((response) => {
           setPage(response.data);
@@ -70,7 +71,8 @@ const Artillery = () => {
       alert("fudeu");
     }
   }
-  */
+  
+*/
 
   return (
     <>
@@ -109,7 +111,6 @@ const Artillery = () => {
                         <Pencil />
                       </button>{" "}
                     </Link>
-                  
                   
                   </td>
                 </tr>

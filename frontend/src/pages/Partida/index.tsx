@@ -47,7 +47,7 @@ function Partida() {
         setPage(response.data);
         setRemoveLoading(true)
       });
-  }, 500)
+  }, 300)
   }, [pageNumber]);
 
   const changePage = (index: number) => {

@@ -1,6 +1,7 @@
 
-.loader{
-    width: 50%;
+.styles.loader_container{
+    width: 1000%;
+    height:1 000%;
     display: flex;
     justify-content: center;
     align-items: center;
